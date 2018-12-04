@@ -18,9 +18,8 @@ var campgroundsRoutes = require("./routes/campgrounds"),
     commentRoutes     = require("./routes/comments"),
     indexRoutes       = require("./routes/index");
     
-    
-// mongoose.connect("mongodb://localhost:27017/yelp_camp_v13_dynamic_price", { useNewUrlParser: true });
-mongoose.connect(process.env.DATABASEURL, { useNewUrlParser: true });
+var url = process.env.DATABASEURL || "mongodb://localhost:27017/yelp_camp_v13_dynamic_price";    
+mongoose.connect(url, { useNewUrlParser: true });
 // DB for Heroku
 //mongoose.connect("mongodb://tatar:password1@ds121624.mlab.com:21624/yelpcamp1", { useNewUrlParser: true });
 
