@@ -21,7 +21,7 @@
           <p>
             <em>Created By <strong><%= campground.author.username %></strong>, <%= moment(campground.createdAt).fromNow() %></em>
           </p>
-          <% if(currentUser && campground.author.id.equals(currentUser._id)){ %>
+          <% if(currentUser && campground.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
               <a class="btn btn-xs btn-warning" href="/campgrounds/<%= campground._id %>/edit">Edit</a>
               <form class="delete" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
                 <button class="btn btn-xs btn-danger">Delete</button>
@@ -42,7 +42,7 @@
                 <p>
                   <%= comment.text %>
                 </p>
-                <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
+                <% if(currentUser && comment.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
                     <a class="btn btn-xs btn-warning" 
                       href="/campgrounds/<%= campground._id %>/comments/<%= comment._id%>/edit">
                       Edit
@@ -86,7 +86,7 @@
     });
   }
 </script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeBHf5XU2-h7aUS79M21pX_ASNT1QY1l8&callback=initMap"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR-API-KEY&callback=initMap"></script>
 
 
 <% include ../partials/footer %>
