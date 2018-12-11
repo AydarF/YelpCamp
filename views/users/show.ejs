@@ -1,0 +1,27 @@
+<% include ../partials/header %>
+
+<div class="row">
+    <div class="col-md-4">
+        <h1><%= user.firstName + " " + user.lastName %></h1>
+        <div class="thumbnail">
+            <img src="<%= user.avatar %>" alt="user profile image">
+            <div class="caption"><a href="mailto:<%= user.email %>"><%= user.email %></a></div>
+        </div>
+        <p>
+           もっと時間が必要だ。 いやしくも何かをするなら、じょうずにやりなさい。 
+            あなたは大変速く走る。 ５月１０日月曜日の午後３時に東京駅八重洲中央口で待ち合わせをしていただけませんか。 
+            あなたは人を単に貧しいからといって見下してはならない。 「これはとてもおもしろそうだね」とひろしが言います。 
+            いろいろな意味で、正直が最善の策であることは言うまでもない。 信用して」と彼は言った。 
+        </p>
+    </div>
+    <div class="col-md-8">
+        <h3><%= user.username %>'s campgrounds:</h3>
+        <ul>
+            <% campgrounds.forEach(function(campground){ %>
+              <li><a href="/campgrounds/<%= campground._id %>"><%= campground.name %></a></li>
+            <% }); %>
+        </ul>    
+    </div>
+</div>
+
+<% include ../partials/footer %>
